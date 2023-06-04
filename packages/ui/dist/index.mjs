@@ -16,8 +16,10 @@ var usePhotos = create()(
     (set) => ({
       user: null,
       photos: [],
+      photo: null,
       setUser: (user) => set(() => ({ user })),
-      addPhotos: (photos) => set(() => ({ photos }))
+      addPhotos: (photos) => set(() => ({ photos })),
+      addPhoto: (photo) => set(() => ({ photo }))
     }),
     {
       name: "app-photo"

@@ -16,8 +16,10 @@ interface IPhoto {
 interface Store {
     user: string | null;
     photos: IPhoto[];
+    photo: IPhoto | null;
     setUser: (user: string | null) => void;
     addPhotos: (photos: IPhoto[]) => void;
+    addPhoto: (photos: IPhoto) => void;
 }
 declare const usePhotos: zustand.UseBoundStore<Omit<zustand.StoreApi<Store>, "persist"> & {
     persist: {
