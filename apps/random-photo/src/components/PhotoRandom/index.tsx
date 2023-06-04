@@ -1,4 +1,4 @@
-import { Box, Button, Image, Loader, Paper, Title } from "@mantine/core";
+import { Button, Flex, Image, Loader, Paper, Title } from "@mantine/core";
 import { useState } from "react";
 import { usePhotos } from "ui";
 
@@ -29,19 +29,28 @@ export const PhotoRandom = () => {
     <Paper shadow="sm" radius="md" p="md" m="10" withBorder>
       <Title color="dark.9">Random Photo</Title>
       <Button onClick={handleFetchRandomPhoto}>Generate Photo</Button>
-      {isLoading && <Loader />}
-      {photo && !isLoading && (
-        <div key={photo.id}>
-          <Image
-            maw={240}
-            mx="auto"
-            radius="md"
-            src={photo.url}
-            alt={photo.description}
-            caption={photo.title}
-          />
-        </div>
-      )}
+      <Flex
+        mih={50}
+        gap="md"
+        justify="center"
+        align="center"
+        direction="column"
+        wrap="wrap"
+      >
+        {isLoading && <Loader mx="auto" />}
+        {photo && !isLoading && (
+          <div key={photo.id}>
+            <Image
+              maw={240}
+              mx="auto"
+              radius="md"
+              src={photo.url}
+              alt={photo.description}
+              caption={photo.title}
+            />
+          </div>
+        )}
+      </Flex>
     </Paper>
   );
 };
